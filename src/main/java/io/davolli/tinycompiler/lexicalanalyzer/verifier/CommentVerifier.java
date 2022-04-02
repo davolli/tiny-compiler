@@ -1,6 +1,6 @@
-package lexicalanalyzer.verifier;
+package io.davolli.tinycompiler.lexicalanalyzer.verifier;
 
-import utils.Token;
+import io.davolli.tinycompiler.lexicalanalyzer.model.Token;
 
 import java.util.List;
 

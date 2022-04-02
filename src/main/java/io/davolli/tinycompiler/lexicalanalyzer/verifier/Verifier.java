@@ -1,7 +1,6 @@
-package lexicalanalyzer.verifier;
+package io.davolli.tinycompiler.lexicalanalyzer.verifier;
 
-import utils.Token;
-import utils.TokenType;
+import io.davolli.tinycompiler.lexicalanalyzer.model.Token;
 
 import java.util.List;
 import java.util.Objects;
@@ -28,12 +27,7 @@ public abstract class Verifier {
         return tokenList;
     }
 
-    public static Verifier initChainVerifier() {
-        return new SpaceVerifier()
-                .linkWith(new CommentVerifier());
-    }
-
-    protected Verifier linkWith(Verifier nextVerifier) {
+    public Verifier linkWith(Verifier nextVerifier) {
         this.nextVerifier = nextVerifier;
         return nextVerifier;
     }

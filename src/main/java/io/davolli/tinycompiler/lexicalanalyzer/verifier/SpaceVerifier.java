@@ -1,11 +1,11 @@
-package lexicalanalyzer.verifier;
+package io.davolli.tinycompiler.lexicalanalyzer.verifier;
 
-import utils.Token;
-import utils.TokenType;
+import io.davolli.tinycompiler.lexicalanalyzer.model.Token;
+import io.davolli.tinycompiler.lexicalanalyzer.model.TokenType;
 
 import java.util.List;
 
-import static utils.TokenListHelper.joinTokensIfLastIsEqualsOrAdd;
+import static io.davolli.tinycompiler.lexicalanalyzer.verifier.helper.TokenListHelper.joinTokensIfLastIsEqualsOrAdd;
 
 public class SpaceVerifier extends Verifier {
 

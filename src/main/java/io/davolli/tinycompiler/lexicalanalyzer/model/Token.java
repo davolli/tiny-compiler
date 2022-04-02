@@ -1,4 +1,4 @@
-package utils;
+package io.davolli.tinycompiler.lexicalanalyzer.model;
 
 public class Token {
     private TokenType tokenType;
