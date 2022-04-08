@@ -1,5 +1,6 @@
 package io.davolli.tinycompiler.lexicalanalyzer.verifier;
 
+import io.davolli.tinycompiler.lexicalanalyzer.exception.UnknownTokenException;
 import io.davolli.tinycompiler.lexicalanalyzer.model.Token;
 import io.davolli.tinycompiler.lexicalanalyzer.model.TokenType;
 import org.slf4j.Logger;
@@ -18,10 +19,6 @@ public class FinalVerifier extends Verifier {
 
     @Override
     protected List<Token> checkExecution(char item, List<Token> tokenList) {
-        var newToken = new Token().setTokenType(TokenType.UNKNOWN).setValue(String.valueOf(item));
-        LOGGER.info("Type: {} Value: {}", newToken.getTokenType(), newToken.getValue());
-        tokenList.add(newToken);
-
-        return tokenList;
+        throw new UnknownTokenException(String.valueOf(item));
     }
 }
