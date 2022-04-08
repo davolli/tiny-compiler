@@ -7,7 +7,7 @@ public enum TokenType {
     RIGHT_PAREN,
     DIVISION_SINAL,
     COMMENT,
-    COMMENT_INLINE,
+    INLINE_COMMENT,
     NUMBER,
     PLUS_SINAL,
     MINUS_SINAL,
