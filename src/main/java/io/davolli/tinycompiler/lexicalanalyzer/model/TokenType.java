@@ -5,6 +5,7 @@ public enum TokenType {
     SPACE,
     LEFT_PAREN,
     RIGHT_PAREN,
+    DIVISION_SINAL,
     COMMENT,
     COMMENT_INLINE,
     NUMBER,

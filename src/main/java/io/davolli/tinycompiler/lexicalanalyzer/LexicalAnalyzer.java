@@ -19,9 +19,10 @@ public class LexicalAnalyzer {
 
     private static Verifier initChainVerifier() {
         var initChain = new SpaceVerifier();
-        initChain.linkWith(new CommentVerifier())
+        initChain.linkWith(new DivisionSinalVerifier())
                 .linkWith(new LeftParenthesis())
                 .linkWith(new RightParenthesis())
+                .linkWith(new CommentVerifier())
                 .linkWith(new FinalVerifier());
         return initChain;
     }
