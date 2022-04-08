@@ -9,7 +9,7 @@ public class TinyCompiler {
     private static Logger LOGGER = LoggerFactory.getLogger(TinyCompiler.class);
 
     public static void main(String[] args) {
-        final String code = "    ( 1 + 1   %n   )";
+        final String code = "    ((1 + 1)-  1   )";
         var lexicalAnalyzer = LexicalAnalyzer.execute(code);
     }
 }

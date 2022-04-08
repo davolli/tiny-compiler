@@ -1,10 +1,7 @@
 package io.davolli.tinycompiler.lexicalanalyzer;
 
 import io.davolli.tinycompiler.lexicalanalyzer.model.Token;
-import io.davolli.tinycompiler.lexicalanalyzer.verifier.CommentVerifier;
-import io.davolli.tinycompiler.lexicalanalyzer.verifier.FinalVerifier;
-import io.davolli.tinycompiler.lexicalanalyzer.verifier.SpaceVerifier;
-import io.davolli.tinycompiler.lexicalanalyzer.verifier.Verifier;
+import io.davolli.tinycompiler.lexicalanalyzer.verifier.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +20,8 @@ public class LexicalAnalyzer {
     private static Verifier initChainVerifier() {
         var initChain = new SpaceVerifier();
         initChain.linkWith(new CommentVerifier())
+                .linkWith(new LeftParenthesis())
+                .linkWith(new RightParenthesis())
                 .linkWith(new FinalVerifier());
         return initChain;
     }
