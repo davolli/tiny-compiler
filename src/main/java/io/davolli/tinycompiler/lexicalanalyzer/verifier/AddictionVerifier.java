@@ -7,9 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-import static io.davolli.tinycompiler.lexicalanalyzer.verifier.helper.TokenListHelper.joinTokensIfLastIsEqualsOrAdd;
-
-public class AddictionVerifier extends Verifier{
+public class AddictionVerifier extends Verifier {
 
     private static Logger LOGGER = LoggerFactory.getLogger(AddictionVerifier.class);
 

@@ -10,11 +10,12 @@ public abstract class Verifier {
     protected Verifier nextVerifier;
 
     protected abstract boolean checkValidation(char item, List<Token> tokenList);
+
     protected abstract List<Token> checkExecution(char item, List<Token> tokenList);
 
     public List<Token> check(char item, List<Token> tokenList) {
         if (checkValidation(item, tokenList)) {
-           return checkExecution(item, tokenList);
+            return checkExecution(item, tokenList);
         } else {
             return checkNext(item, tokenList);
         }
@@ -22,7 +23,7 @@ public abstract class Verifier {
 
     private List<Token> checkNext(char item, List<Token> tokenList) {
         if (Objects.nonNull(nextVerifier)) {
-           tokenList = this.nextVerifier.check(item, tokenList);
+            tokenList = this.nextVerifier.check(item, tokenList);
         }
         return tokenList;
     }

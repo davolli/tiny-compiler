@@ -4,16 +4,17 @@ import io.davolli.tinycompiler.lexicalanalyzer.model.Token;
 import io.davolli.tinycompiler.lexicalanalyzer.model.TokenType;
 
 import java.util.List;
-import java.util.Objects;
 
 public class TokenListHelper {
-    private TokenListHelper() {}
+
+    private TokenListHelper() {
+    }
 
     public static Token getPreviousToken(List<Token> tokenList) {
         if (tokenList.isEmpty()) {
-            return new Token(TokenType.UNKNOWN,"");
+            return new Token(TokenType.UNKNOWN, "");
         }
-        return tokenList.get(tokenList.size()-1);
+        return tokenList.get(tokenList.size() - 1);
     }
 
     public static List<Token> joinTokensIfLastIsEqualsOrAdd(List<Token> tokenList, Token actualToken) {

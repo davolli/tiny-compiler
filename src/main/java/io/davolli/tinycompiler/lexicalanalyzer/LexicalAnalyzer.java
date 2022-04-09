@@ -25,8 +25,8 @@ public class LexicalAnalyzer {
                 .linkWith(new AddictionVerifier())
                 .linkWith(new SubtractionVerifier())
                 .linkWith(new MultiplicationVerifier())
-                .linkWith(new LeftParenthesis())
-                .linkWith(new RightParenthesis())
+                .linkWith(new LeftParenthesisVerifier())
+                .linkWith(new RightParenthesisVerifier())
                 .linkWith(new NumberVerify())
                 .linkWith(new FinalVerifier());
         return initChain;

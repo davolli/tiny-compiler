@@ -22,6 +22,6 @@ public class NewLineVerifier extends Verifier {
     protected List<Token> checkExecution(char item, List<Token> tokenList) {
         var newToken = new Token(TokenType.NEW_LINE, "\\n");
         LOGGER.info("Type: {} | Value: {}", newToken.getTokenType(), newToken.getValue());
-        return joinTokensIfLastIsEqualsOrAdd(tokenList,newToken);
+        return joinTokensIfLastIsEqualsOrAdd(tokenList, newToken);
     }
 }

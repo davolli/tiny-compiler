@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
-import java.util.Objects;
 
 import static io.davolli.tinycompiler.lexicalanalyzer.verifier.helper.TokenListHelper.joinTokensIfLastIsEqualsOrAdd;
 
@@ -19,7 +18,7 @@ public class InlineCommentVerifier extends Verifier {
     protected boolean checkValidation(char item, List<Token> tokenList) {
         var previousTokenType = TokenListHelper.getPreviousToken(tokenList).getTokenType();
         return (item != '\n' && previousTokenType == TokenType.INLINE_COMMENT) ||
-                ( item == '/' && previousTokenType == TokenType.DIVISION_SINAL );
+                (item == '/' && previousTokenType == TokenType.DIVISION_SINAL);
     }
 
     @Override
@@ -31,6 +30,6 @@ public class InlineCommentVerifier extends Verifier {
         }
         var newToken = new Token(TokenType.INLINE_COMMENT, String.valueOf(item));
         LOGGER.info("Type: {} | Value: {}", newToken.getTokenType(), newToken.getValue());
-        return joinTokensIfLastIsEqualsOrAdd(tokenList,newToken);
+        return joinTokensIfLastIsEqualsOrAdd(tokenList, newToken);
     }
 }

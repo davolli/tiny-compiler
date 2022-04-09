@@ -7,19 +7,18 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-import static io.davolli.tinycompiler.lexicalanalyzer.verifier.helper.TokenListHelper.joinTokensIfLastIsEqualsOrAdd;
+public class RightParenthesisVerifier extends Verifier {
 
-public class LeftParenthesis extends Verifier {
-    private static Logger LOGGER = LoggerFactory.getLogger(LeftParenthesis.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(RightParenthesisVerifier.class);
 
     @Override
     protected boolean checkValidation(char item, List<Token> tokenList) {
-        return item == '(';
+        return item == ')';
     }
 
     @Override
     protected List<Token> checkExecution(char item, List<Token> tokenList) {
-        var newToken = new Token().setTokenType(TokenType.LEFT_PAREN).setValue(String.valueOf(item));
+        var newToken = new Token().setTokenType(TokenType.RIGHT_PAREN).setValue(String.valueOf(item));
         tokenList.add(newToken);
         LOGGER.info("Type: {} | Value: {}", newToken.getTokenType(), newToken.getValue());
         return tokenList;

@@ -7,7 +7,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public class SubtractionVerifier extends Verifier{
+public class SubtractionVerifier extends Verifier {
+
     private static Logger LOGGER = LoggerFactory.getLogger(SubtractionVerifier.class);
 
     @Override
