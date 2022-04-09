@@ -22,12 +22,12 @@ public class LexicalAnalyzer {
         initChain.linkWith(new NewLineVerifier())
                 .linkWith(new SpaceVerifier())
                 .linkWith(new DivisionSinalVerifier())
+                .linkWith(new AddictionVerifier())
                 .linkWith(new LeftParenthesis())
                 .linkWith(new RightParenthesis())
                 .linkWith(new NumberVerify())
                 .linkWith(new FinalVerifier());
         return initChain;
     }
-
 
 }

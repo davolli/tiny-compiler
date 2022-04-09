@@ -9,7 +9,7 @@ public enum TokenType {
     COMMENT,
     INLINE_COMMENT,
     NUMBER,
-    PLUS_SINAL,
+    PLUS_SIGN,
     MINUS_SINAL,
     NEW_LINE,
     UNKNOWN,
