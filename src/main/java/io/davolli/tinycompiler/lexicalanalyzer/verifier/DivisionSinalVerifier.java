@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 public class DivisionSinalVerifier extends Verifier {
-    
+
     private static Logger LOGGER = LoggerFactory.getLogger(DivisionSinalVerifier.class);
 
     @Override
