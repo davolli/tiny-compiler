@@ -18,6 +18,7 @@ public class SpaceVerifier extends Verifier {
     protected boolean checkValidation(char item, List<Token> tokenList) {
         var lastToken = TokenListHelper.getPreviousToken(tokenList);
         if (isNotSpaceChar(item) && lastToken.getTokenType() == TokenType.SPACE) {
+            LOGGER.info("Removing last SPACE token");
             tokenList.remove(tokenList.size()-1);
         }
         return Character.isSpaceChar(item);
