@@ -2,6 +2,7 @@ package io.davolli.tinycompiler.lexicalanalyzer.verifier;
 
 import io.davolli.tinycompiler.lexicalanalyzer.model.Token;
 import io.davolli.tinycompiler.lexicalanalyzer.model.TokenType;
+import io.davolli.tinycompiler.lexicalanalyzer.verifier.helper.TokenListHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,6 +16,10 @@ public class SpaceVerifier extends Verifier {
 
     @Override
     protected boolean checkValidation(char item, List<Token> tokenList) {
+        var lastToken = TokenListHelper.getPreviousToken(tokenList);
+        if (isNotSpaceChar(item) && lastToken.getTokenType() == TokenType.SPACE) {
+            tokenList.remove(tokenList.size()-1);
+        }
         return Character.isSpaceChar(item);
     }
 
@@ -23,5 +28,9 @@ public class SpaceVerifier extends Verifier {
         var newToken = new Token().setTokenType(TokenType.SPACE).setValue(String.valueOf(item));
         LOGGER.info("Type: {} | Value: {}", newToken.getTokenType(), newToken.getValue());
         return joinTokensIfLastIsEqualsOrAdd(tokenList, newToken);
+    }
+
+    private boolean isNotSpaceChar(char item) {
+        return !Character.isSpaceChar(item);
     }
 }
