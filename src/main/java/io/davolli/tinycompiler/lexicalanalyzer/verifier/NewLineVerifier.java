@@ -2,12 +2,11 @@ package io.davolli.tinycompiler.lexicalanalyzer.verifier;
 
 import io.davolli.tinycompiler.lexicalanalyzer.model.Token;
 import io.davolli.tinycompiler.lexicalanalyzer.model.TokenType;
+import io.davolli.tinycompiler.lexicalanalyzer.verifier.helper.TokenListHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
-
-import static io.davolli.tinycompiler.lexicalanalyzer.verifier.helper.TokenListHelper.joinTokensIfLastIsEqualsOrAdd;
 
 public class NewLineVerifier extends Verifier {
 
@@ -20,8 +19,16 @@ public class NewLineVerifier extends Verifier {
 
     @Override
     protected List<Token> checkExecution(char item, List<Token> tokenList) {
-        var newToken = new Token(TokenType.NEW_LINE, "\\n");
-        LOGGER.info("Type: {} | Value: {}", newToken.getTokenType(), newToken.getValue());
-        return joinTokensIfLastIsEqualsOrAdd(tokenList, newToken);
+        LOGGER.info("Ignoring NEW_LINE Token");
+        return removeCommentsTokens(tokenList);
+    }
+
+    private List<Token> removeCommentsTokens(List<Token> tokenList) {
+        var lastToken = TokenListHelper.getPreviousToken(tokenList);
+        if (lastToken.getTokenType() == TokenType.INLINE_COMMENT) {
+            tokenList.remove(tokenList.size() - 1);
+            LOGGER.info("Remove last INLINE_COMMENT");
+        }
+        return tokenList;
     }
 }
