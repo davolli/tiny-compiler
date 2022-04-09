@@ -23,6 +23,7 @@ public class LexicalAnalyzer {
                 .linkWith(new SpaceVerifier())
                 .linkWith(new DivisionSinalVerifier())
                 .linkWith(new AddictionVerifier())
+                .linkWith(new SubtractionVerifier())
                 .linkWith(new LeftParenthesis())
                 .linkWith(new RightParenthesis())
                 .linkWith(new NumberVerify())

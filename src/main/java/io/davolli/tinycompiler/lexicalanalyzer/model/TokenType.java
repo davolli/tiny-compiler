@@ -10,7 +10,7 @@ public enum TokenType {
     INLINE_COMMENT,
     NUMBER,
     PLUS_SIGN,
-    MINUS_SINAL,
+    MINUS_SIGN,
     NEW_LINE,
     UNKNOWN,
     EOF
