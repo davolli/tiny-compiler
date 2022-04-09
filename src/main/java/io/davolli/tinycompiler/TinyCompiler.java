@@ -9,7 +9,7 @@ public class TinyCompiler {
     private static Logger LOGGER = LoggerFactory.getLogger(TinyCompiler.class);
 
     public static void main(String[] args) {
-        final String code = "  //as  (1 \n 1/((1)+  1)   )";
+        final String code = "  //as  (1 \n 12/((1)+  1)   )";
         var lexicalAnalyzer = LexicalAnalyzer.execute(code);
     }
 }

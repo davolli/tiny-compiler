@@ -24,6 +24,7 @@ public class LexicalAnalyzer {
                 .linkWith(new DivisionSinalVerifier())
                 .linkWith(new LeftParenthesis())
                 .linkWith(new RightParenthesis())
+                .linkWith(new NumberVerify())
                 .linkWith(new FinalVerifier());
         return initChain;
     }
