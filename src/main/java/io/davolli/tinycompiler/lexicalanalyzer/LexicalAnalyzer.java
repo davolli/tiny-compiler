@@ -21,7 +21,7 @@ public class LexicalAnalyzer {
         var initChain = new InlineCommentVerifier();
         initChain.linkWith(new NewLineVerifier())
                 .linkWith(new SpaceVerifier())
-                .linkWith(new DivisionSinalVerifier())
+                .linkWith(new DivisionSignVerifier())
                 .linkWith(new AddictionVerifier())
                 .linkWith(new SubtractionVerifier())
                 .linkWith(new MultiplicationVerifier())

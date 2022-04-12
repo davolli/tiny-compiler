@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public class DivisionSinalVerifier extends Verifier {
+public class DivisionSignVerifier extends Verifier {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(DivisionSinalVerifier.class);
+    private static Logger LOGGER = LoggerFactory.getLogger(DivisionSignVerifier.class);
 
     @Override
     protected boolean checkValidation(char item, List<Token> tokenList) {
