@@ -18,7 +18,7 @@ public class DivisionSignVerifier extends Verifier {
 
     @Override
     protected List<Token> checkExecution(char item, List<Token> tokenList) {
-        var newToken = new Token(TokenType.DIVISION_SINAL, String.valueOf(item));
+        var newToken = new Token(TokenType.DIVISION_SIGN, String.valueOf(item));
         tokenList.add(newToken);
         LOGGER.info("Type: {} | Value: {}", newToken.getTokenType(), newToken.getValue());
         return tokenList;

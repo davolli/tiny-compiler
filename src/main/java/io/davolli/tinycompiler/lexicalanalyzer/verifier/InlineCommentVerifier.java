@@ -18,15 +18,15 @@ public class InlineCommentVerifier extends Verifier {
     protected boolean checkValidation(char item, List<Token> tokenList) {
         var previousTokenType = TokenListHelper.getPreviousToken(tokenList).getTokenType();
         return (item != '\n' && previousTokenType == TokenType.INLINE_COMMENT) ||
-                (item == '/' && previousTokenType == TokenType.DIVISION_SINAL);
+                (item == '/' && previousTokenType == TokenType.DIVISION_SIGN);
     }
 
     @Override
     protected List<Token> checkExecution(char item, List<Token> tokenList) {
         var previousToken = TokenListHelper.getPreviousToken(tokenList);
-        if (previousToken.getTokenType() == TokenType.DIVISION_SINAL) {
+        if (previousToken.getTokenType() == TokenType.DIVISION_SIGN) {
             previousToken.setTokenType(TokenType.INLINE_COMMENT);
-            LOGGER.info("Change token from {} to {}", TokenType.DIVISION_SINAL, TokenType.INLINE_COMMENT);
+            LOGGER.info("Change token from {} to {}", TokenType.DIVISION_SIGN, TokenType.INLINE_COMMENT);
         }
         var newToken = new Token(TokenType.INLINE_COMMENT, String.valueOf(item));
         LOGGER.info("Type: {} | Value: {}", newToken.getTokenType(), newToken.getValue());
