@@ -27,7 +27,8 @@ public class NewLineVerifier extends Verifier {
         var lastToken = TokenListHelper.getPreviousToken(tokenList);
         if (lastToken.getTokenType() == TokenType.INLINE_COMMENT) {
             tokenList.remove(tokenList.size() - 1);
-            LOGGER.info("Remove last INLINE_COMMENT");
+            tokenList.add(new Token(TokenType.SPACE, " "));
+            LOGGER.info("Change last INLINE_COMMENT to SPACE");
         }
         return tokenList;
     }
