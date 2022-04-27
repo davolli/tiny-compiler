@@ -5,19 +5,22 @@ import io.davolli.tinycompiler.syntaxanalyzer.expression.Expression;
 import io.davolli.tinycompiler.syntaxanalyzer.expression.GoalExpression;
 import io.davolli.tinycompiler.syntaxanalyzer.model.SyntaxTreeResult;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class SyntaxAnalyzer {
 
+    private static final SyntaxAnalyzer uniqueInstance = new SyntaxAnalyzer();
     private Expression programAST = new GoalExpression();
     private int currentTokenListIndex = 0;
     private List<Token> tokenList;
     private SyntaxTreeResult syntaxTree;
-    private static final SyntaxAnalyzer uniqueInstance = new SyntaxAnalyzer();
 
     public SyntaxAnalyzer() {
         this.syntaxTree = new SyntaxTreeResult();
+    }
+
+    public static synchronized SyntaxAnalyzer getInstance() {
+        return uniqueInstance;
     }
 
     public SyntaxTreeResult execute() {
@@ -59,8 +62,5 @@ public class SyntaxAnalyzer {
     public SyntaxAnalyzer setTokenList(List<Token> tokenList) {
         this.tokenList = tokenList;
         return this;
-    }
-    public static synchronized SyntaxAnalyzer getInstance() {
-         return uniqueInstance;
     }
 }

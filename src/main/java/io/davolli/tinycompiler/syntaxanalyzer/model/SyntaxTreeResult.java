@@ -13,7 +13,7 @@ public class SyntaxTreeResult {
     }
 
     public Expression getExprByIndex(int index) {
-        return  programAST.get(index);
+        return programAST.get(index);
     }
 
     public SyntaxTreeResult addExpression(Expression expression) {
