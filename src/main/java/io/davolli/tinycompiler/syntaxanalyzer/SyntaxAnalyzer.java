@@ -13,10 +13,9 @@ public class SyntaxAnalyzer {
     private Expression programAST = new GoalExpression();
     private int currentTokenListIndex = 0;
     private List<Token> tokenList;
-    private SyntaxTreeResult syntaxTree;
+    private SyntaxTreeResult syntaxTreeResponse = new SyntaxTreeResult();
 
     public SyntaxAnalyzer() {
-        this.syntaxTree = new SyntaxTreeResult();
     }
 
     public static synchronized SyntaxAnalyzer getInstance() {
@@ -25,7 +24,7 @@ public class SyntaxAnalyzer {
 
     public SyntaxTreeResult execute() {
         programAST.expandTree();
-        return syntaxTree;
+        return syntaxTreeResponse;
     }
 
     public Token nextToken() {
