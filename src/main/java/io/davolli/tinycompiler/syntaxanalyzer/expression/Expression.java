@@ -16,6 +16,21 @@ public abstract class Expression {
         return this;
     }
 
+    public List<Expression> popNode() {
+        if (this.nodes.isEmpty()) {
+            return this.nodes;
+        }
+        this.nodes.remove(this.nodes.size() - 1);
+        return this.nodes;
+    }
+
+    public Expression getLastNode() {
+        if (this.nodes.isEmpty()) {
+            return null;
+        }
+        return this.nodes.get(this.nodes.size() - 1);
+    }
+
     public abstract void expandTree();
 
 }

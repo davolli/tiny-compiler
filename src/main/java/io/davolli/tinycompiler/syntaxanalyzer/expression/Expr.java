@@ -4,6 +4,10 @@ public class Expr extends Expression {
 
     @Override
     public void expandTree() {
-
+        this.popNode();
+        this.addNode(new ExprLine());
+        this.getLastNode().expandTree();
+        this.addNode(new Term());
+        this.getLastNode().expandTree();
     }
 }

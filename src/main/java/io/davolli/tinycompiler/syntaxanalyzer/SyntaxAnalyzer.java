@@ -2,7 +2,7 @@ package io.davolli.tinycompiler.syntaxanalyzer;
 
 import io.davolli.tinycompiler.lexicalanalyzer.model.Token;
 import io.davolli.tinycompiler.syntaxanalyzer.expression.Expression;
-import io.davolli.tinycompiler.syntaxanalyzer.expression.GoalExpression;
+import io.davolli.tinycompiler.syntaxanalyzer.expression.Goal;
 import io.davolli.tinycompiler.syntaxanalyzer.model.SyntaxTreeResult;
 
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 public class SyntaxAnalyzer {
 
     private static final SyntaxAnalyzer uniqueInstance = new SyntaxAnalyzer();
-    private Expression programAST = new GoalExpression();
+    private Expression programAST = new Goal();
     private int currentTokenListIndex = 0;
     private List<Token> tokenList;
     private SyntaxTreeResult syntaxTreeResponse = new SyntaxTreeResult();

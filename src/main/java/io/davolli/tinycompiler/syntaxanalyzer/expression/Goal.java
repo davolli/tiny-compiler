@@ -1,6 +1,6 @@
 package io.davolli.tinycompiler.syntaxanalyzer.expression;
 
-public class GoalExpression extends Expression {
+public class Goal extends Expression {
 
     @Override
     public void expandTree() {
