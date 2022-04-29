@@ -6,5 +6,7 @@ public class Goal extends Expression {
     public void expandTree() {
         this.addNode(new Expr());
         this.getNodes().get(0).expandTree();
+        verifyFinish();
     }
+
 }

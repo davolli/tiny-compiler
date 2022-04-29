@@ -1,5 +1,7 @@
 package io.davolli.tinycompiler.syntaxanalyzer.expression;
 
+import io.davolli.tinycompiler.syntaxanalyzer.exception.SyntaxErrorException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,4 +35,9 @@ public abstract class Expression {
 
     public abstract void expandTree();
 
+    protected void verifyFinish() {
+        if (!this.getNodes().isEmpty()) {
+            throw new SyntaxErrorException();
+        }
+    }
 }
