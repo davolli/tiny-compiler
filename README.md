@@ -1,7 +1,7 @@
 # tiny-compiler
 
 ## Grammar
-Algo -> Expr
+GOAL -> Expr
 
 Expr -> term Expr'
 
