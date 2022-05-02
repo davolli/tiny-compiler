@@ -40,4 +40,10 @@ public abstract class Expression {
             throw new SyntaxErrorException();
         }
     }
+
+    protected void addNodeExpandAndDelete(Expression node) {
+        this.addNode(node);
+        this.getLastNode().expandTree();
+        this.popNode();
+    }
 }
