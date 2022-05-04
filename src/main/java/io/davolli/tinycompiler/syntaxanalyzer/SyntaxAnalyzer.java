@@ -35,6 +35,9 @@ public class SyntaxAnalyzer {
     public Token getCurrentToken() {
         return tokenList.get(currentTokenListIndex);
     }
+    public Token getNextToken() {
+        return tokenList.get(currentTokenListIndex+1);
+    }
 
     public Expression getProgramAST() {
         return programAST;
