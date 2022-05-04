@@ -15,9 +15,18 @@ public class LexicalAnalyzer {
         for (int i = 0; i < code.length(); i++) {
             tokenList = verifierChain.check(code.charAt(i), tokenList);
         }
+        tokenList = checkAndDeleteIfLastTokenIsSpace(tokenList);
         tokenList.add(new Token(TokenType.EOF, ""));
         return tokenList;
     }
+
+    private static List<Token> checkAndDeleteIfLastTokenIsSpace(List<Token> tokenList) {
+        if (tokenList.get(tokenList.size()-1).getTokenType().equals(TokenType.SPACE)) {
+            tokenList.remove(tokenList.size()-1);
+        }
+        return tokenList;
+    }
+
 
     private static Verifier initChainVerifier() {
         var initChain = new InlineCommentVerifier();
