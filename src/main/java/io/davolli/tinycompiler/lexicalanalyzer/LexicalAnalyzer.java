@@ -1,6 +1,7 @@
 package io.davolli.tinycompiler.lexicalanalyzer;
 
 import io.davolli.tinycompiler.lexicalanalyzer.model.Token;
+import io.davolli.tinycompiler.lexicalanalyzer.model.TokenType;
 import io.davolli.tinycompiler.lexicalanalyzer.verifier.*;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class LexicalAnalyzer {
         for (int i = 0; i < code.length(); i++) {
             tokenList = verifierChain.check(code.charAt(i), tokenList);
         }
+        tokenList.add(new Token(TokenType.EOF, ""));
         return tokenList;
     }
 
