@@ -2,7 +2,6 @@ package io.davolli.tinycompiler.syntaxanalyzer.expression;
 
 import io.davolli.tinycompiler.lexicalanalyzer.model.TokenType;
 import io.davolli.tinycompiler.syntaxanalyzer.SyntaxAnalyzer;
-import io.davolli.tinycompiler.syntaxanalyzer.exception.SyntaxErrorException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,19 +37,17 @@ public abstract class Expression {
 
     public abstract void expandTree();
 
-    protected void verifyFinish() {
-        if (!getCurrentTokenType().equals(TokenType.EOF)) {
-            throw new SyntaxErrorException();
-        }
-    }
-
     protected void addNodeExpandAndDelete(Expression node) {
         this.addNode(node);
         this.getLastNode().expandTree();
         this.popNode();
     }
 
-    protected TokenType getCurrentTokenType() { return SyntaxAnalyzer.getInstance().getCurrentToken().getTokenType();}
+    protected TokenType getCurrentTokenType() {
+        return SyntaxAnalyzer.getInstance().getCurrentToken().getTokenType();
+    }
 
-    protected void goToNextToken() { SyntaxAnalyzer.getInstance().nextToken(); }
+    protected void goToNextToken() {
+        SyntaxAnalyzer.getInstance().nextToken();
+    }
 }

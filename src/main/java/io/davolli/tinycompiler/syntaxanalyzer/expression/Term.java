@@ -3,6 +3,9 @@ package io.davolli.tinycompiler.syntaxanalyzer.expression;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Term -> Factor Term'
+ */
 public class Term extends Expression {
 
     private static Logger LOGGER = LoggerFactory.getLogger(Term.class);

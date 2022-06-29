@@ -16,34 +16,36 @@ public class Factor extends Expression {
     public void expandTree() {
         LOGGER.info("ExpandExpr: Factor | ActualTokenType: {}", getCurrentTokenType());
 
-        if (isTokenNumber() ) {
+        if (isTokenNumber()) {
             LOGGER.info("expression: Factor | ActualTokenType: {} | Found Number", getCurrentTokenType());
             goToNextToken();
-        } else if (isLeftParentesisToken()) {
+        } else if (isLeftParenthesesToken()) {
             LOGGER.info("expression: Factor | ActualTokenType: {} | Found '('", getCurrentTokenType());
             goToNextToken();
             addNodeExpandAndDelete(new Expr());
-            if ( isRightParentesis() ) {
-                LOGGER.info("expression: Factor | ActualTokenType: {} | Found ')'", getCurrentTokenType());
-                goToNextToken();
-            } else {
-                throw new SyntaxErrorException();
-            }
-        }
-        else {
+            validateParenthesesClosed();
+            LOGGER.info("expression: Factor | ActualTokenType: {} | Found ')'", getCurrentTokenType());
+            goToNextToken();
+        } else {
             throw new SyntaxErrorException();
         }
     }
 
-    private boolean isRightParentesis() {
+    private void validateParenthesesClosed() {
+        if (!isRightParentheses()) {
+            throw new SyntaxErrorException();
+        }
+    }
+
+    private boolean isRightParentheses() {
         return getCurrentTokenType().equals(TokenType.RIGHT_PAREN);
     }
 
-    private boolean isLeftParentesisToken() {
+    private boolean isLeftParenthesesToken() {
         return getCurrentTokenType().equals(TokenType.LEFT_PAREN);
     }
 
     private boolean isTokenNumber() {
-       return getCurrentTokenType().equals(TokenType.NUMBER);
+        return getCurrentTokenType().equals(TokenType.NUMBER);
     }
 }

@@ -1,6 +1,7 @@
 package io.davolli.tinycompiler;
 
 import io.davolli.tinycompiler.lexicalanalyzer.LexicalAnalyzer;
+import io.davolli.tinycompiler.semanticanalyzer.SemanticAnalyzer;
 import io.davolli.tinycompiler.syntaxanalyzer.SyntaxAnalyzer;
 
 
@@ -11,5 +12,7 @@ public class TinyCompiler {
         var lexicalAnalyzerResultTokenList = LexicalAnalyzer.execute(code);
         var syntaxTreeResponse = SyntaxAnalyzer.getInstance().setTokenList(lexicalAnalyzerResultTokenList)
                 .execute();
+        var semanticResponse = SemanticAnalyzer.getInstance().execute(syntaxTreeResponse);
+
     }
 }
