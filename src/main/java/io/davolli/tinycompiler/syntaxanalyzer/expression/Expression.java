@@ -47,6 +47,10 @@ public abstract class Expression {
         return SyntaxAnalyzer.getInstance().getCurrentToken().getTokenType();
     }
 
+    protected  String getCurrentTokenValue() {
+        return SyntaxAnalyzer.getInstance().getCurrentToken().getValue();
+    }
+
     protected void goToNextToken() {
         SyntaxAnalyzer.getInstance().nextToken();
     }

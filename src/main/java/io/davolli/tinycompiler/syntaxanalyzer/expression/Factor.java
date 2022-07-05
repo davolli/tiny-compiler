@@ -17,7 +17,7 @@ public class Factor extends Expression {
         LOGGER.info("ExpandExpr: Factor | ActualTokenType: {}", getCurrentTokenType());
 
         if (isTokenNumber()) {
-            LOGGER.info("expression: Factor | ActualTokenType: {} | Found Number", getCurrentTokenType());
+            LOGGER.info("expression: Factor | ActualTokenType: {} | Found Number {}", getCurrentTokenType(), getCurrentTokenValue());
             goToNextToken();
         } else if (isLeftParenthesesToken()) {
             LOGGER.info("expression: Factor | ActualTokenType: {} | Found '('", getCurrentTokenType());
