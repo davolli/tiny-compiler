@@ -1,28 +1,29 @@
 package io.davolli.tinycompiler.syntaxanalyzer.model;
 
-import io.davolli.tinycompiler.syntaxanalyzer.expression.Expression;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class SyntaxTreeResult {
 
-    private List<Expression> programAST;
+    private String type;
 
-    public List<Expression> getAST() {
-        return programAST;
+    private List<Body> body = new ArrayList<>();
+
+    public String getType() {
+        return type;
     }
 
-    public Expression getExprByIndex(int index) {
-        return programAST.get(index);
-    }
-
-    public SyntaxTreeResult addExpression(Expression expression) {
-        this.programAST.add(expression);
+    public SyntaxTreeResult setType(String type) {
+        this.type = type;
         return this;
     }
 
-    public SyntaxTreeResult setProgramAST(List<Expression> programAST) {
-        this.programAST = programAST;
+    public List<Body> getBody() {
+        return body;
+    }
+
+    public SyntaxTreeResult setBody(List<Body> body) {
+        this.body = body;
         return this;
     }
 }
