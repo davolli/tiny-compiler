@@ -3,6 +3,7 @@ package io.davolli.tinycompiler.syntaxanalyzer;
 import io.davolli.tinycompiler.lexicalanalyzer.model.Token;
 import io.davolli.tinycompiler.syntaxanalyzer.expression.Expression;
 import io.davolli.tinycompiler.syntaxanalyzer.expression.Goal;
+import io.davolli.tinycompiler.syntaxanalyzer.model.Body;
 import io.davolli.tinycompiler.syntaxanalyzer.model.SyntaxTreeResult;
 
 import java.util.List;
@@ -11,9 +12,9 @@ public class SyntaxAnalyzer {
 
     private static final SyntaxAnalyzer uniqueInstance = new SyntaxAnalyzer();
     private final Expression programAST = new Goal();
+    private SyntaxTreeResult syntaxTreeResponse = new SyntaxTreeResult();
     private int currentTokenListIndex = 0;
     private List<Token> tokenList;
-    private final SyntaxTreeResult syntaxTreeResponse = new SyntaxTreeResult();
 
     private SyntaxAnalyzer() {
     }
@@ -44,4 +45,9 @@ public class SyntaxAnalyzer {
         this.tokenList = tokenList;
         return this;
     }
+
+    public SyntaxTreeResult getSyntaxTreeResponse() {
+        return syntaxTreeResponse;
+    }
+
 }

@@ -1,6 +1,6 @@
 package io.davolli.tinycompiler.syntaxanalyzer.model;
 
-public class Params {
+public class Param {
 
     private String type;
 
@@ -10,7 +10,7 @@ public class Params {
         return type;
     }
 
-    public Params setType(String type) {
+    public Param setType(String type) {
         this.type = type;
         return this;
     }
@@ -19,7 +19,7 @@ public class Params {
         return value;
     }
 
-    public Params setValue(String value) {
+    public Param setValue(String value) {
         this.value = value;
         return this;
     }

@@ -7,7 +7,7 @@ public class Body {
 
     private String type;
     private String name;
-    private List<Params> params = new ArrayList<>();
+    private List<Param> params = new ArrayList<>();
 
     public String getName() {
         return name;
@@ -18,12 +18,17 @@ public class Body {
         return this;
     }
 
-    public List<Params> getParams() {
+    public List<Param> getParams() {
         return params;
     }
 
-    public Body setParams(List<Params> params) {
-        this.params = params;
+    public Body(String type, String name) {
+        this.type = type;
+        this.name = name;
+    }
+
+    public Body addParam(Param param) {
+        this.params.add(param);
         return this;
     }
 

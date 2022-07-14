@@ -7,10 +7,16 @@ public class SyntaxTreeResult {
 
     private String type;
 
-    private List<Body> body = new ArrayList<>();
+    private List<Body> bodyList = new ArrayList<>();
+
+    private Body actualBody;
 
     public String getType() {
         return type;
+    }
+
+    public SyntaxTreeResult() {
+        this.type = "Program";
     }
 
     public SyntaxTreeResult setType(String type) {
@@ -18,12 +24,13 @@ public class SyntaxTreeResult {
         return this;
     }
 
-    public List<Body> getBody() {
-        return body;
+    public void initNewBody(String type, String name) {
+        this.actualBody = new Body(type, name);
     }
-
-    public SyntaxTreeResult setBody(List<Body> body) {
-        this.body = body;
-        return this;
+    public void finishBody() {
+        this.bodyList.add(this.actualBody);
+    }
+    public void addParamToBody(Param param) {
+        this.actualBody.addParam(param);
     }
 }
